@@ -4,8 +4,7 @@
       <%= link_to "Mark as Done", complete_todo_list_todo_element_path(@todo_list, todo_element.id), method: :patch %>
     </div>
     <div class="todo_item">
-      <p style="opacity: 0.5;">
-        <s><%= todo_element.content %></s></p>
+      <p style="opacity: 0.5;"><s><%= todo_element.content %></s></p>
     </div>
     <div class="trash">
       <%= link_to "Remove", todo_list_todo_element_path(@todo_list, todo_element.id), method: :delete, data: { confirm: "Are you sure?" } %>
