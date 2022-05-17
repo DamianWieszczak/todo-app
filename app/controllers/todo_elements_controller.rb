@@ -1,5 +1,6 @@
 class TodoElementsController < ApplicationController
   before_action :set_todo_list
+  before_action :set_todo_element, except: [:create]
 
   def create
     @todo_element = @todo_list.todo_elements.create(todo_element_params)
@@ -16,6 +17,12 @@ class TodoElementsController < ApplicationController
     redirect_to @todo_list
   end
 
+  def complete
+    @todo_element.update_attribute(:completed_at, Time.now)
+    flash[:notice] = "This task has been completed"
+    redirect_to @todo_list
+  end
+
   private
 
   def set_todo_list
@@ -24,6 +31,10 @@ class TodoElementsController < ApplicationController
 
   def todo_element_params
     params[:todo_element].permit(:content)
+  end
+
+  def set_todo_element
+    @todo_element = @todo_list.todo_elements.find(params[:id])
   end
 
 end
