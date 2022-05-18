@@ -4,7 +4,12 @@ class TodoElementsController < ApplicationController
 
   def create
     @todo_element = @todo_list.todo_elements.create(todo_element_params)
+    flash[:notice] = "Your ToDo List element was created"
     redirect_to @todo_list
+  end
+
+  def edit
+    @todo_element = @todo_list.todo_elements.find(params[:id])
   end
 
   def destroy

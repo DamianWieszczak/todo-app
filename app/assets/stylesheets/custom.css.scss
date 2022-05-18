@@ -1,2 +1,22 @@
 @import "bootstrap/scss/bootstrap";
 
+.body
+{
+  margin: 0;
+}
+.navbar-brand
+{
+  color: #FCD854;
+  font-size: 2rem;
+}
+#sticky-footer
+{
+    flex-shrink: 0;
+    color: #FCD854;
+    background-color: #3A89A9;
+}
+#decoration
+{
+  text-decoration: none;
+  color: #E71A73;
+}

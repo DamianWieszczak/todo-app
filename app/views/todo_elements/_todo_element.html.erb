@@ -1,25 +1,23 @@
-<div class="row clearfix">
+<div class="container mb-3 mt-3">
   <% if todo_element.completed? %>
-    <div class="complete">
-      <%= link_to "Mark as Done", complete_todo_list_todo_element_path(@todo_list, todo_element.id), method: :patch %>
-    </div>
-    <div class="todo_item">
-      <p style="opacity: 0.5;"><s><%= todo_element.content %></s></p>
-    </div>
-    <div class="trash">
-      <%= link_to "Remove", todo_list_todo_element_path(@todo_list, todo_element.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="container"></div>
+      <div class="card bg-success mx-auto" style="width: 18rem;">
+        <div class="card-body bg-color-green mx-auto">
+          <h5 class="card-title"><%= @todo_list.title %></h5>
+          <p class="card-text"><%= todo_element.content %></p>
+          <%= link_to "Remove", todo_list_todo_element_path(@todo_list, todo_element.id), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
     </div>
   <% else %>
-    <div class="complete">
-      <%= link_to "Mark as Done", complete_todo_list_todo_element_path(@todo_list, todo_element.id), method: :patch %>
-    </div>
-    <div class="todo_element">
-      <p><%= todo_element.content %></p>
-    </div>
-    <div class="trash">
-      <%= link_to "Remove", todo_list_todo_element_path(@todo_list, todo_element.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    <div class="card bg-warning mx-auto" style="width: 18rem;">
+        <div class="card-body bg-color-green mx-auto">
+            <h5 class="card-title"><%= @todo_list.title %></h5>
+            <p class="card-text"><%= todo_element.content %></p>
+            <%= link_to "Mark as Done", complete_todo_list_todo_element_path(@todo_list, todo_element.id), class: "btn btn-sm btn-success", method: :patch %>
+            <%= link_to "Remove", todo_list_todo_element_path(@todo_list, todo_element.id), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
     </div>
   <% end %>
 </div>
-
 
